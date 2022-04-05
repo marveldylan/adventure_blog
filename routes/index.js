@@ -4,28 +4,38 @@ const router = Router()
 
 // blog routes
 
+// This works
 router.post('/blogpost', controllers.createNewBlog)
 
-router.get('/blogpost', controllers.getAllBlog)
+//This Works!
+router.get('/blogpost', controllers.getAllBlogs)
 
-router.get('/blogpost/blogid', controllers.getBlogById)
+//This works!
+router.get('/blogpost/:blogid', controllers.getBlogById)
 
-router.put('/blogpost/blogid', controllers.updateBlog)
+// This works
+router.put('/blogpost/:blogid', controllers.updateBlog)
 
-router.delete('/blogpost/blogid', controllers.deleteBlog)
+// This works
+router.delete('/blogpost/:blogid', controllers.deleteBlog)
+
+// -----------------------------------------------------
 
 // comment routes
-router.post('/comment/:id', controllers.createNewComment)
 
+//This works
+router.post('/comment', controllers.createNewComment)
+
+//This works
 router.get('/comment', controllers.getAllComments)
 
-router.get('/comment/:id', controllers.getBCommentbyId)
+//This works
+router.get('/comment/:id', controllers.getCommentById)
 
+//This works
 router.put('/comment/:id', controllers.updateComment)
 
+//This works!
 router.delete('/comment/:id', controllers.deleteComment)
-
-
-
 
 module.exports = router
