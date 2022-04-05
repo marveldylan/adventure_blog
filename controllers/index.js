@@ -44,7 +44,7 @@ const deleteBlog = async (req, res) => {
   try {
     const deleted = await Blog.findByIdAndDelete(req.params.blogid)
     if (deleted) {
-      return res.staus(200).send('Blog Deleted')
+      return res.status(200).send('Blog Deleted')
     }
     throw new Error('Blog Not Found')
   } catch (error) {
@@ -61,7 +61,7 @@ const getAllComments = async (req, res) => {
   }
 }
 
-const getBCommentById = async (req, res) => {
+const getCommentById = async (req, res) => {
   try {
     const comment = await Comment.findById(req.params.id)
     return res.status(201).send(comment)
@@ -95,7 +95,7 @@ const deleteComment = async (req, res) => {
   try {
     const deleted = await Comment.findByIdAndDelete(req.params.id)
     if (deleted) {
-      return res.staus(200).send('Comment Deleted')
+      return res.status(200).send('Comment Deleted')
     }
     throw new Error('Comment Not Found')
   } catch (error) {
@@ -110,7 +110,8 @@ module.exports = {
   updateBlog,
   deleteBlog,
   getAllComments,
-  getBCommentById,
+  createNewComment,
+  getCommentById,
   updateComment,
   deleteComment
 }
