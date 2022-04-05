@@ -11,7 +11,7 @@ const PostReducer = (state = initialState, action ) => {
         case POSTS_LOADING:
             return { ...state, postsLoading: action.payload }
         case GET_POSTS:
-            return { ...state, postsLoading: action.playload }
+            return { ...state, postsLoading: action.payload }
         default: 
         return { ...state }
     }
