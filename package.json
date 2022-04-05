@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "axios": "^0.26.1",
+    "react-redux": "^7.2.8",
+    "redux": "^4.1.2",
+    "redux-thunk": "^2.4.1"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "adventure_blog",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marveldylan/adventure_blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marveldylan/adventure_blog/issues"
+  },
+  "homepage": "https://github.com/marveldylan/adventure_blog#readme"
+}
