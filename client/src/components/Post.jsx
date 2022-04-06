@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import { Link } from "react-router-dom"
 import { LoadPosts } from "../store/actions/PostActions.js"
 
+
 const mapStateToProps = ({ postState }) => {
     return  { postState }
 }
@@ -26,6 +27,7 @@ const Post = (props) => {
                     <h3>{post.title}</h3>
                     <Link to={`/blogpost/${post._id}`}>View post</Link>
                     </div>
+                    
                 ))
             }
         </div>
