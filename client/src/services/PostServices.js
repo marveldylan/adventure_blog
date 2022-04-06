@@ -1,8 +1,8 @@
-import Client from './'
+import Client from '.'
 
 export const GetPosts = async () => {
     try {
-      const res = await Client.get('/posts')
+      const res = await Client.get('/blogpost')
       return res.data
     } catch (error) {
       throw error
@@ -11,8 +11,8 @@ export const GetPosts = async () => {
   
   export const GetBlogPost = async (postId) => {
     try {
-      const res = await Client.get(`/posts/${postId}`)
-      return res.data.Products
+      const res = await Client.get(`/blogpost/${postId}`)
+      return res.data
     } catch (error) {
       throw error
     }

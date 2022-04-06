@@ -16,7 +16,7 @@ export const LoadPosts = () => {
     }
 }
 
-export const GetPostById = () => {
+export const GetPostById = (id) => {
     return async (dispatch) => {
         try {
             const posts = await GetBlogPost(id)
@@ -33,7 +33,7 @@ export const GetPostById = () => {
 export const LoadComments = () => {
     return async (dispatch) => {
         try {
-            const posts = await GetComments()
+            const comments = await GetComments()
             dispatch({
                 type: GET_COMMENTS,
                 payload: comments
