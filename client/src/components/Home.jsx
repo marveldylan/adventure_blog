@@ -4,7 +4,12 @@ const Home = () => {
 
     return(
         <div className="home-container">
-            <h1>Home is linked</h1>
+            <div className="home-title">
+                <p>Home</p>
+            </div>
+            <div className="posts-container">
+                <Post />
+            </div>
         </div>
     )
 }
