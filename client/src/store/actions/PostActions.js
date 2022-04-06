@@ -1,13 +1,13 @@
-import { GetBlogPost, GetPosts } from '../../services/PostServices'
+import { GetPostDetails, GetPosts } from '../../services/PostServices'
 import { GetComments } from '../../services/CommentsServices'
-import { POSTS_LOADING, GET_POSTS, GET_COMMENTS } from '../types'
+import { POSTS_LOADING, GET_POSTS, GET_COMMENTS, GET_POST_DETAILS } from '../types'
 
 export const LoadPosts = () => {
     return async (dispatch) => {
         try {
             const posts = await GetPosts()
             dispatch({
-                type: POSTS_LOADING,
+                type: GET_POSTS,
                 payload: posts
             })
         } catch(error) {
@@ -16,13 +16,13 @@ export const LoadPosts = () => {
     }
 }
 
-export const GetPostById = (id) => {
+export const LoadPostDetails = (id) => {
     return async (dispatch) => {
         try {
-            const posts = await GetBlogPost(id)
+            const postDetails = await GetPostDetails(id)
             dispatch({
-                type: GET_POSTS,
-                payload: posts
+                type: GET_POST_DETAILS,
+                payload: postDetails
             })
         } catch(error) {
             throw error

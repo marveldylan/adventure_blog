@@ -2,6 +2,7 @@ import './App.css';
 import Nav from './components/Nav';
 import Home from  './components/Home';
 import CreatePost from './components/CreatePost'
+import PostDetails from './components/PostDetails'
 import { Route, Routes } from 'react-router-dom';
 
 
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/create" element={<CreatePost />} />
+          <Route path="blogpost/:id" element={<PostDetails /> } />
         </Routes>
       </div>
     </div>
