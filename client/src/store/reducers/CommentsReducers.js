@@ -1,16 +1,23 @@
-const { GET_COMMENTS } = require('../types')
+const { ADD_COMMENT, NEW_COMMENT } = require('../types')
 
 const initialState = {
-    comments: []
+  comments: ['HELLO'],
+  newComment: ''
 }
 
-const CommentsReducer = (state = initialState, action ) => {
-    switch (action.type) {
-        case GET_COMMENTS:
-            return { ...state, products: action.payload }
-            default: 
-            return { ...state }
-    }
+const CommentsReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_COMMENT:
+      return {
+        ...state,
+        comments: [...state.comments, action.payload],
+        newComment: ''
+      }
+    case NEW_COMMENT:
+      return { ...state, newComment: action.payload }
+    default:
+      return { ...state }
+  }
 }
 
 export default CommentsReducer
