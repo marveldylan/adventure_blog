@@ -14,19 +14,19 @@ const mapDispatchToProps = (dispatch) => {
 const Post = (props) => {
     useEffect(()=> {
         props.fetchPost()
-        console.log(props)
+        console.log('test string')
     }, [])
 
     return (
         <div className="list-container">
             {
-                // props.postState.post.map((post) => (
-                //     <div key={post.id} className="post-profile">
-                //     <img className="post-image" src={``} alt="poster" />
-                //     <h3>{post.title}</h3>
-                //     <Link to={`/post/${post.id}`}>View post</Link>
-                //     </div>
-                // ))
+                props.postState.posts.map((post) => (
+                    <div key={post._id} className="post-profile">
+                    <img className="post-image" src={``} alt="poster" />
+                    <h3>{post.title}</h3>
+                    <Link to={`/blogpost/${post._id}`}>View post</Link>
+                    </div>
+                ))
             }
         </div>
     )
