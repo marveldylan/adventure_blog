@@ -5,10 +5,10 @@ const { Blog, Comment } = require('../models')
 db.on('error', console.error.bind(console, 'MongoDB Connection Error'))
 
 const main = async () => {
-  // const comments1 = await new Comment({
-  //   msg: 'Samoa is nice'
-  // })
-  // await comments1.save()
+  const comments1 = await new Comment({
+    msg: 'Samoa is nice'
+  })
+  await comments1.save()
 
   const blogPost1 = await new Blog({
     image:

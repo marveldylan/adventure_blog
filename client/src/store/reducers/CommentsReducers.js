@@ -5,7 +5,7 @@ const initialState = {
   newComment: ''
 }
 
-const PostReducer = (state = initialState, action) => {
+const CommentsReducer = (state = initialState, action) => {
   switch (action.type) {
     case COMMENTS_LOADING:
       return { ...state, newComment: action.payload }
@@ -14,7 +14,7 @@ const PostReducer = (state = initialState, action) => {
     case ADD_COMMENT:
       return {
         ...state,
-        comments: [...state.comments, action.payload],
+        comments: [ ...state.comments, action.payload ],
         newComment: ''
       }
     default:
@@ -22,4 +22,4 @@ const PostReducer = (state = initialState, action) => {
   }
 }
 
-export default PostReducer
+export default CommentsReducer

@@ -1,10 +1,9 @@
 import { useEffect } from "react"
 import { connect } from "react-redux"
-import { Link } from "react-router-dom"
 import {LoadComments} from '../store/actions/CommentActions'
 
-const mapStateToProps = ({ commentState }) => {
-    return  { commentState }
+const mapStateToProps = ({ commentsState }) => {
+    return  { commentsState }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -14,19 +13,25 @@ const mapDispatchToProps = (dispatch) => {
 const Comment = (props) => {
     useEffect(()=> {
         props.fetchComments()
-        console.log('test string for comments')
+        console.log(props.commentsState.comments, 'MESSAGE')
     }, [])
 
-    console.log(props, 'COMMENT PROPS')
 
-    // return(
-    //     // <div className="comment-container">
-    //     //     <h1>Comment is linked</h1>
-    //     //     {props.commentState.comments.map((comment) => (
-                
-    //     //     ))}
-    //     // </div>
-    // )
+    return(
+        <div className="comment-container">
+            {
+            props.commentsState.comments[0].map((comment) => {
+                console.log(comment, 'prop comment')
+                return (
+                    <div key={comment._id} className="comment-item">
+                        <p>ID: {comment._id}</p>
+                        <p>MESSAGE: {comment.msg}</p>
+                    </div>
+            )
+            })
+            }
+        </div>
+    )
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Comment)
