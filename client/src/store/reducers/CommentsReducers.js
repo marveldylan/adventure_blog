@@ -5,19 +5,12 @@ const initialState = {
   newComment: ''
 }
 
-const updateComments = (arr, comment) => {
-  let newArr = arr
-  newArr.push(comment)
-  return newArr
-}
-
 const CommentsReducer = (state = initialState, action) => {
   switch (action.type) {
-    // case COMMENTS_LOADING:
-    //   return { ...state, newComment: action.payload }
+    case COMMENTS_LOADING:
+      return { ...state, newComment: action.payload }
     case NEW_COMMENT:
-        return {...state, }
-      return { comments: updateComments(state.comments, action.payload)}
+      return { ...state, newComment: action.payload }
     case ADD_COMMENT:
       return {
         ...state,

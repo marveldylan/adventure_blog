@@ -1,10 +1,9 @@
-import './App.css';
-import Nav from './components/Nav';
-import Home from  './components/Home';
+import './App.css'
+import Nav from './components/Nav'
+import Home from './components/Home'
 import CreatePost from './components/CreatePost'
 import PostDetails from './components/PostDetails'
-import { Route, Routes } from 'react-router-dom';
-
+import { Route, Routes } from 'react-router-dom'
 
 function App() {
   return (
@@ -16,11 +15,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/create" element={<CreatePost />} />
-          <Route path="blogpost/:id" element={<PostDetails /> } />
+          <Route path="blogpost/:id" element={<PostDetails />} />
         </Routes>
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
