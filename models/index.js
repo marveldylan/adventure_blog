@@ -3,7 +3,7 @@ const BlogSchema = require('./Blog')
 const CommentSchema = require('./Comment')
 
 const Blog = mongoose.model('blog', BlogSchema)
-const Comment = mongoose.model('checkout', CommentSchema)
+const Comment = mongoose.model('comment', CommentSchema)
 
 module.exports = {
   Blog,
