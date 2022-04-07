@@ -1,4 +1,6 @@
 export const POSTS_LOADING = 'POSTS_LOADING'
+export const ADD_POST = 'ADD_POST'
+export const NEW_POST = 'NEW_POST'
 export const GET_POSTS = 'GET_POSTS'
 export const GET_POST_DETAILS = 'GET_POST_DETAILS'
 export const COMMENTS_LOADING = 'COMMENTS_LOADING'
