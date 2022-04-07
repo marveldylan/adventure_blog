@@ -1,4 +1,4 @@
-const { Blog, Comment } = require('../models/index')
+const { Blog, Comment, Review } = require('../models/index')
 const { add } = require('../models')
 
 const getAllBlogs = async (req, res) => {
@@ -103,6 +103,25 @@ const deleteComment = async (req, res) => {
   }
 }
 
+const createReview = async (req, res) => {
+  try {
+    const blogId = req.body.blog
+    const blog = await Blog.findById(blogId)
+    const review = await new Review(req.body)
+    let newRating =
+      (blog.rating * blog.reviews.length + review.rating) /
+      (blog.reviews.length + 1)
+    await Blog.findByIdAndUpdate(blogId, {
+      rating: newRating,
+      reviews: [...blog.reviews, review._id]
+    })
+    await review.save()
+    return res.status(201).json(review)
+  } catch (error) {
+    return res.status(500).json({ error: error.message })
+  }
+}
+
 module.exports = {
   getAllBlogs,
   getBlogById,
@@ -113,5 +132,6 @@ module.exports = {
   createNewComment,
   getCommentById,
   updateComment,
-  deleteComment
+  deleteComment,
+  createReview
 }
