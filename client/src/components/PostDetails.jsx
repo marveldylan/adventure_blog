@@ -1,5 +1,5 @@
 import Comment from "./Comment"
-import WriteComment from "./WriteComment"
+import CreateComment from './CreateComment'
 
 const PostDetails = () => {
 
