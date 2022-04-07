@@ -4,7 +4,7 @@ export const GetComments = async () => {
   try {
     const res = await Client.get('/comment')
     console.log(res.data, 'COMMENT')
-    return res.data
+    return res.data[0]
   } catch (error) {
     throw error
   }

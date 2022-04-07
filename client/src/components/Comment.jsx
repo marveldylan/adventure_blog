@@ -13,13 +13,13 @@ const mapDispatchToProps = (dispatch) => {
 const Comment = (props) => {
     useEffect(()=> {
         props.fetchComments()
-        console.log(props.commentsState.comments, 'MESSAGE')
+        console.log(props, 'MESSAGE')
     }, [])
 
 
     return(
         <div className="comment-container">
-            {
+            {/* {
             props.commentsState.comments[0].map((comment) => {
                 console.log(comment, 'prop comment')
                 return (
@@ -29,7 +29,7 @@ const Comment = (props) => {
                     </div>
             )
             })
-            }
+            } */}
         </div>
     )
 }
