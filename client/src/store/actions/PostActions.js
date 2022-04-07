@@ -1,11 +1,8 @@
 import { GetPostDetails, GetPosts, AddNewPost } from '../../services/PostServices'
-import { GetComments } from '../../services/CommentsServices'
 import {
-  POSTS_LOADING,
   GET_POSTS,
   ADD_POST,
   NEW_POST,
-  GET_COMMENTS,
   GET_POST_DETAILS
 } from '../types'
 
@@ -36,6 +33,11 @@ export const LoadPostDetails = (id) => {
     }
   }
 }
+
+export const CreateNewPost = (formValue) => ({
+      type: NEW_POST,
+      payload: formValue
+})
 
 export const LoadNewPost = () => {
   return async (dispatch) => {

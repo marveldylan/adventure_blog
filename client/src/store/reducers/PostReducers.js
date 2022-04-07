@@ -3,7 +3,11 @@ const { POSTS_LOADING, GET_POSTS, ADD_POST, NEW_POST } = require('../types')
 const initialState = {
     posts: [],
     postsLoading: '',
-    newPost: {}
+    newPost: {
+        title: '',
+        post: '',
+        image: ''
+    }
     
 }
 
