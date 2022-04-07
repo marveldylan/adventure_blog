@@ -1,7 +1,8 @@
 const { GET_COMMENT_DETAILS } = require('../types')
 
 const initialState = {
-  commentDetails: {}
+  commentDetails: [],
+  newComment: ''
 }
 
 const CommentDetailsReducer = (state = initialState, action) => {

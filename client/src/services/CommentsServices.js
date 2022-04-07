@@ -19,3 +19,13 @@ export const GetCommentDetails = async (commentId) => {
     throw error
   }
 }
+
+export const AddNewComment = async (formValue) => {
+  try {
+    const res = await Client.post(`/comment`, formValue)
+    console.log(res.status, 'RESPONSE COMMENTS')
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}

@@ -122,6 +122,24 @@ const createReview = async (req, res) => {
   }
 }
 
+const getAllReviews = async (req, res) => {
+  try {
+    const review = await Review.find()
+    return res.status(201).send(review)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
+const getReviewById = async (req, res) => {
+  try {
+    const review = await Review.findById(req.params.blogid)
+    return res.status(201).send(review)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 module.exports = {
   getAllBlogs,
   getBlogById,
@@ -133,5 +151,7 @@ module.exports = {
   getCommentById,
   updateComment,
   deleteComment,
-  createReview
+  createReview,
+  getAllReviews,
+  getReviewById
 }
