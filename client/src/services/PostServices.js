@@ -18,3 +18,12 @@ export const GetPostDetails = async (postId) => {
     throw error
   }
 }
+
+export const AddNewPost = async () => {
+  try {
+    const res = await Client.post('/blogpost')
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}

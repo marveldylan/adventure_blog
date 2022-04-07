@@ -7,7 +7,8 @@ const Blog = new Schema(
     post: { type: String, required: false },
     rating: { type: Number, required: false },
     reviews: [{ type: Schema.Types.ObjectId, ref: 'Review', required: false }],
-    comments: [{ type: Schema.Types.ObjectId, required: false }]
+    comments: [{ type: Schema.Types.ObjectId, required: false }],
+    likes: { type: Number, required: true }
   },
   { timestamps: true }
 )
