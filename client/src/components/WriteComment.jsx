@@ -1,21 +1,54 @@
-
-
+import Comment from "./Comment"
+import { useEffect } from "react"
+import { useParams } from "react-router-dom"
+import { connect } from "react-redux"
+import { GetCommentDetails } from "../services/CommentsServices"
+   
+    
+ const mapStateToProps = ({commentsState }) => {
+        return { commentsState }
+    }
+    
+const mapDispatchToProps = (dispatch) => {
+        return {
+            fetchCommentDetails: (id) => dispatch(LoadCommentDetails(id))
+        }
+    }
+    
 const WriteComment = (props) => {
 
-    // return(
-    //     <div className="write-comment-container">
-    //         <h1>WriteComment </h1>
-    //         <div className='msgContainer'>
-    //             <form className='msgForm' >
-    //                 <input className='uploadImage' placeholder='Paste a link to your image here' onChange={handleImageChange} value={imageLink} id="pasteImage" ></input>
-    //                 <textarea className='messageText' type='text' name='message' rows='10' placeholder='Enter your comment here...' onChange={handleChange} value={message}></textarea>
-    //                 <div className='btn'>
-    //      <button className='commentBtn' onClick={onClick}>Comment</button>
-    //                 </div>
-    //             </form >
-    // </div>
-    //     </div>
-    // )
+        let { id } = useParams()
+    
+        useEffect(() => {
+            props.fetchComments(id)
+        }, [])
+
+    const handleChange = (e) => {
+        commentState({...newReview, [e.target.name]: e.target.value })
+        console.log(e.target.name)
+        console.log(e.target.value)
+      
+      }
+      
+      const handleSubmit= (e) => {
+           GetCommentDetails()
+      }
+
+    return (
+        <div>
+            <h2>Write a Comments</h2>
+            <form className="submit-form" onSubmit={handleSubmit}> 
+                 <input type="text" value={newReview.rating} onChange={handleChange} 
+                         name={'rating'} placeholder={'Rate 1-5'} />
+                 <input type="text" value={newReview.comments} onChange={handleChange} 
+                         name={'comments'} placeholder={'Leave a comment'} />
+                <button>Submit</button>
+            </form>
+          </div>
+      
+        
+      )
+ 
 }
 
-export default WriteComment
+export default connect(mapStateToProps, mapDispatchToProps)(WriteComment)
