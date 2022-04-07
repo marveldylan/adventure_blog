@@ -1,8 +1,9 @@
-const { POSTS_LOADING, GET_POSTS } = require('../types')
+const { POSTS_LOADING, GET_POSTS, ADD_POST, NEW_POST } = require('../types')
 
 const initialState = {
     posts: [],
-    postsLoading: ''
+    postsLoading: '',
+    newPost: {}
     
 }
 
@@ -12,6 +13,14 @@ const PostReducer = (state = initialState, action ) => {
             return { ...state, postsLoading: action.payload }
         case GET_POSTS:
             return { ...state, posts: action.payload }
+        case ADD_POST:
+            return {
+                ...state,
+                posts: [...state.posts, { posts: action.payload, isComplete: false}],
+                newPost: {}
+              }
+        case NEW_POST:
+            return { ...state, newPost: action.payload}
         default: 
         return { ...state }
     }
