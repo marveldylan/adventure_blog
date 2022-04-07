@@ -1,11 +1,15 @@
-
+import { Link } from 'react-router-dom'
 
 const Nav = () => {
 
     return(
-        <div className="nav-container">
-            <h1>Nav is linked</h1>
-        </div>
+        <nav>
+            <div className="navbar">
+            <Link to="/" className="nav-item">Home</Link>
+            <Link to="/post" className="nav-item">Post</Link>
+            <Link to="/createpost" className="nav-item"> Create a Post</Link>
+            </div>
+        </nav>
     )
 }
 

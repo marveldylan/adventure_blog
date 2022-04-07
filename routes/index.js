@@ -38,4 +38,6 @@ router.put('/comment/:id', controllers.updateComment)
 //This works!
 router.delete('/comment/:id', controllers.deleteComment)
 
+router.post('/review', controllers.createReview)
+
 module.exports = router
