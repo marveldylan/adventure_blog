@@ -2,7 +2,7 @@ import Comment from "./Comment"
 import { useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { connect } from "react-redux"
-// import { LoadCommentDetails } from "../services/CommentsServices"
+import { GetCommentDetails } from "../services/CommentsServices"
    
     
  const mapStateToProps = ({commentsState }) => {
@@ -23,12 +23,12 @@ const WriteComment = (props) => {
             props.fetchComments(id)
         }, [])
 
-    // const handleChange = (e) => {
-    //     commentState({...newReview, [e.target.name]: e.target.value })
-    //     console.log(e.target.name)
-    //     console.log(e.target.value)
+    const handleChange = (e) => {
+        commentState({...newReview, [e.target.name]: e.target.value })
+        console.log(e.target.name)
+        console.log(e.target.value)
       
-    //   }
+      }
       
       const handleSubmit= (e) => {
            GetCommentDetails()
@@ -37,13 +37,13 @@ const WriteComment = (props) => {
     return (
         <div>
             <h2>Write a Comments</h2>
-            {/* <form className="submit-form" onSubmit={handleSubmit}> 
+            <form className="submit-form" onSubmit={handleSubmit}> 
                  <input type="text" value={newReview.rating} onChange={handleChange} 
                          name={'rating'} placeholder={'Rate 1-5'} />
                  <input type="text" value={newReview.comments} onChange={handleChange} 
                          name={'comments'} placeholder={'Leave a comment'} />
                 <button>Submit</button>
-            </form> */}
+            </form>
           </div>
       
         
