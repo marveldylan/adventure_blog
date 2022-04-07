@@ -1,35 +1,34 @@
 import { useEffect } from "react"
 import { connect } from "react-redux"
-import {LoadComments} from '../store/actions/CommentActions'
+import {LoadComments } from '../store/actions/CommentActions'
 
 const mapStateToProps = ({ commentsState }) => {
     return  { commentsState }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchComments: () => dispatch(LoadComments())
+        fetchComments: () => dispatch(LoadComments()),
     }
 }
 const Comment = (props) => {
     useEffect(()=> {
         props.fetchComments()
-        console.log(props, 'MESSAGE')
     }, [])
+    console.log(props, 'COMMENT COMPONENT')
+
 
 
     return(
         <div className="comment-container">
-            {/* {
-            props.commentsState.comments[0].map((comment) => {
-                console.log(comment, 'prop comment')
+            {
+            props.commentsState.comments.map((comment, index) => {
                 return (
-                    <div key={comment._id} className="comment-item">
-                        <p>ID: {comment._id}</p>
-                        <p>MESSAGE: {comment.msg}</p>
+                    <div key={index} className="comment-item">
+                        <p>{comment.msg}</p>
                     </div>
             )
             })
-            } */}
+            }
         </div>
     )
 }

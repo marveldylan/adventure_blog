@@ -24,7 +24,7 @@ const Post = (props) => {
                     <div key={post._id} className="post-profile">
                     <img className="post-image" src={post.image} alt="poster" />
                     <h3>{post.title}</h3>
-                    <Link className="view" to={`/blogpost/${post._id}`}>Write comment</Link>
+                    <Link className="view" to={`/blogpost/${post._id}`}>View Details</Link>
                     </div>
                     
                      
